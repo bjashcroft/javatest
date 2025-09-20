@@ -5,6 +5,7 @@ const inputBox2 = document.getElementById("inputBox2");
 const copyButton = document.getElementById("copyButton");
  // Add a "click" event listener to the button
 copyButton.addEventListener("click", function() {
+    inputBox2.disabled = false;
     // Copy the value from the first input box to the second
     inputBox2.value = inputBox1.value;
 });
@@ -15,6 +16,10 @@ const denominatorInput = document.getElementById("demBox");
 const percBox = document.getElementById("percBox"); 
 const percButton = document.getElementById("percButton");
 percButton.addEventListener("click", function() {
+
+    // Enable the percentage text box
+    percBox.disabled = false;
+
     // Get the value from the input fields and convert them to numbers
     let numerator = parseFloat(numeratorInput.value);
     let denominator = parseFloat(denominatorInput.value);
@@ -31,4 +36,20 @@ percButton.addEventListener("click", function() {
         // Handle the case where the denominator is zero
         percBox.value = "Cannot divide by zero!";
     }
+});
+
+//Example 3 Reset the form
+const resetButton = document.getElementById("resetButton");
+//
+resetButton.addEventListener("click", function() {
+        // Reset the value of each element to an empty string
+        inputBox1.value = "Start typing here...";
+        inputBox2.value = "";
+        numeratorInput.value = "1";
+        denominatorInput.value = "100";
+        percBox.value = "";
+
+        percBox.disabled = true;
+        inputBox2.disabled = true;
+
 });
